@@ -1,0 +1,62 @@
+1-ASp.Net Core MVC projesi oluşturulur.
+Solution adına genel bir solution adı verilir.
+
+2-Katmanlar oluşturulur.
+	-Entities(DATA)
+	-Business
+	-DAL(Service,Manager)
+	-UI(Core)
+
+3-Solution>Manage Nuget Package a kütüphaneler eklenlenir.
+	-M.EFCore ->Entities
+	-M.EFCore.Tools
+	-M.EFCore.SqlServer
+	-M.AspNetCore.Identity
+	-M.AspNetCore.Identity.EFCore
+	-Newtonsoft.Json ->UI
+	
+	!EF:EntityFramework
+	!M : Microsoft
+	!EFCore sürümü .Net Core sürümü ile aynı olmalı
+
+4-Entities Katmanı
+	Context klasörü
+	Models
+		Entites
+		Helper(with session)
+		ViewModels
+	Migration
+
+5-Business Katmanı
+	Abstract klasörü ->interface
+		IRepository
+	Concrete klasörü ->class
+		Repository
+	!class ilgili interfaceden kalıtım alır.
+
+6- DAL
+	Abstract
+		IEntityDAL
+	Concrete
+		EntityDAL
+
+7-UI
+	program.cs
+		-Dependecy Injection ayarları
+		-Cookie ayarı(Kullanıcı giri için/oturum)
+		-Session ayarı(sepete ekleme)
+
+	Controller
+		CategoryController
+		ProductController
+		HomeController
+		CartController
+		RoleController
+		AccountController
+		UserControlller
+		OrderController
+
+8-WepApi katmanı
+	CategoriesController
+	ProductController
+	

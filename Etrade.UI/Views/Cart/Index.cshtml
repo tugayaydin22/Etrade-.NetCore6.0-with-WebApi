@@ -1,0 +1,52 @@
+﻿@using Etrade.Entities.Models.ViewModels;
+@model IEnumerable<CartItem>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Sepet</h1>
+<hr />
+@if (Model == null)
+{
+    <div class="alert alert-danger" role="alert">
+        Sepetiniz Boş
+    </div>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Quantity</th>
+                <th>Total </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Product.Name</td>
+                    <td>@item.Product.Price.ToString("c")</td>
+                    <td>@item.Quantity</td>
+                    <td>@((item.Product.Price * item.Quantity).ToString("c"))</td>
+                    <td>
+                        <a class="btn btn-danger" asp-action="Remove" asp-route-id="@item.Product.Id">Remove</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3"></td>
+                <td>@ViewBag.Total</td>
+            </tr>
+        </tfoot>
+    </table>
+}
+<a asp-action="List" asp-controller="Home">Alışverişe devam et</a>
+<a asp-action="CheckOut">Alışverişi Tamamla</a> @* varsayılan olarak bulunduğu controllerı baz alır*@
+

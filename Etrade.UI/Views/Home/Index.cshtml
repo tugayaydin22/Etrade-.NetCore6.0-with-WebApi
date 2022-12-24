@@ -1,0 +1,18 @@
+﻿@using Etrade.Entities.Models.Entities
+@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<header>
+    <div class="container py-2">
+        <h1>Eticaret Sitesi Demo</h1>
+        <p class="col-md-8 fs-4">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod aliquid consequuntur labore porro, eos magni veritatis quia molestiae nemo perspiciatis dolorum dicta, facilis nesciunt iusto laborum omnis doloremque odio ipsum?
+        </p>
+    </div>
+</header>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @Html.Partial("_ProductList",Model)
+</div>
+
